@@ -1,0 +1,19 @@
+package model
+
+import "time"
+
+type Status string
+
+const (
+	Todo       Status = "todo"
+	InProgress Status = "in_progress"
+	Done       Status = "done"
+)
+
+type Task struct {
+	Id          int       `json:"id,omitempty"`
+	Description string    `json:"description"`
+	Status      Status    `json:"status"`
+	CreatedAt   time.Time `json:"createdAt"`
+	UpdatedAt   time.Time `json:"updatedAt"`
+}
