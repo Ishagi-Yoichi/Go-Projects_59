@@ -2,18 +2,18 @@ package model
 
 import "time"
 
-type Status string
+type TaskStatus string
 
 const (
-	Todo       Status = "todo"
-	InProgress Status = "in_progress"
-	Done       Status = "done"
+	StatusTodo       TaskStatus = "todo"
+	StatusInProgress TaskStatus = "in-progress"
+	StatusDone       TaskStatus = "done"
 )
 
 type Task struct {
-	Id          int       `json:"id,omitempty"`
-	Description string    `json:"description"`
-	Status      Status    `json:"status"`
-	CreatedAt   time.Time `json:"createdAt"`
-	UpdatedAt   time.Time `json:"updatedAt"`
+	ID          int        `json:"id,omitempty"`
+	Description string     `json:"description"`
+	Status      TaskStatus `json:"status"`
+	CreatedAt   time.Time  `json:"createdAt"`
+	UpdatedAt   time.Time  `json:"updatedAt"`
 }

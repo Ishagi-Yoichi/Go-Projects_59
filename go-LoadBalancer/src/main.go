@@ -23,11 +23,12 @@ type simpleServer struct {
 func newSimpleServer(addr string) *simpleServer {
 	serverUrl, err := url.Parse(addr)
 	handleErr(err)
-
+	
 	return &simpleServer{
 		addr:  addr,
 		proxy: httputil.NewSingleHostReverseProxy(serverUrl),
 	}
+
 }
 
 type LoadBalancer struct {
