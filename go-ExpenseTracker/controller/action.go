@@ -66,3 +66,38 @@ func AddExpense(description string, amount int) model.Expense {
 	}
 	return newExp
 }
+
+func UpdateExpense(id int, amount int, description string) model.Expense {
+	exps, _ := LoadExp()
+
+	for i, exp := range exps {
+		if exp.ID == id {
+			exps[i].Amount = amount
+			exps[i].Description = description
+			exps[i].UpdatedAt = time.Now()
+
+			err := SaveExp(exps)
+			if err != nil {
+				fmt.Printf("Error Updating expense: %v", err)
+			}
+			return exps[i]
+		}
+	}
+	return model.Expense{}
+}
+
+func DeleteExpense(id int) ([]model.Expense, string) {
+	exps, _ := LoadExp()
+
+	for i, exp := range exps {
+		if exp.ID == id {
+			exps = append(exps[:i], exps[i+1:]...)
+			err := SaveExp(exps)
+			if err != nil {
+				fmt.Printf("Error Deleting expense %v", err)
+			}
+			return exps, "success"
+		}
+	}
+	return exps, "Expense Not found"
+}

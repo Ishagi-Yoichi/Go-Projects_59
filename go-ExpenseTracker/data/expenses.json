@@ -3,7 +3,14 @@
   "id": 1,
   "description": "shoes",
   "amount": 120,
-  "createdAt": "2026-05-03T14:52:25.0294472+05:30",
+  "createdAt": "2026-05-03T15:18:14.0572255+05:30",
+  "updatedAt": "0001-01-01T00:00:00Z"
+ },
+ {
+  "id": 2,
+  "description": "shirts",
+  "amount": 175,
+  "createdAt": "2026-05-03T15:18:32.3994546+05:30",
   "updatedAt": "0001-01-01T00:00:00Z"
  }
 ]
